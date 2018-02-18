@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Local DynamoDB",
+            "type": "shell",
+            "command": "sls dynamodb start",
+            "options": {
+                "cwd": "${workspaceFolder}/logbook-event-handler"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run offline",
+            "type": "shell",
+            "command": "source ${workspaceFolder}/venv/bin/activate && sls wsgi serve",
+            "options": {
+                "cwd": "${workspaceFolder}/logbook-event-handler"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Stop Local DynamoDB",
+            "type": "shell",
+            "command": "sls dynamodb stop",
+            "options": {
+                "cwd": "${workspaceFolder}/logbook-event-handler"
+            }
+        }
+    ]
+}
